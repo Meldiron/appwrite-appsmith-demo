@@ -1,11 +1,13 @@
 import { Appwrite } from "appwrite";
 
 const sdk = new Appwrite();
-sdk.setEndpoint("https://demo.appwrite.io/v1").setProject("617b90031d1f8");
-const appUrl = "http://localhost:3000";
+sdk
+  .setEndpoint(process.env.appwriteEndpoint)
+  .setProject(process.env.appwriteProjectId);
+const appUrl = process.env.baseUrl;
 
 const collections = {
-  projects: "617ba048311ab",
+  projects: process.env.collectionProjects,
 };
 
 export const state = () => ({

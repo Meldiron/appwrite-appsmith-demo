@@ -22,6 +22,14 @@ export default {
     link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
   },
 
+  env: {
+    baseUrl: process.env.APP_URL || "http://localhost:3000",
+    appwriteEndpoint:
+      process.env.APPWRITE_ENDPOINT || "https://demo.appwrite.io/v1",
+    appwriteProjectId: process.env.APPWRITE_PROJECT_ID || "617b90031d1f8",
+    collectionProjects: process.env.COLLECTION_PROJECTS || "617ba048311ab",
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/css/main.css"],
 
