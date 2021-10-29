@@ -1,5 +1,103 @@
 # appsmith-appwrite
 
+## Appwrite setup
+
+- Users -> Settings; Everything disabled except GitHub (GitHub configured & enabled)
+- Collection "projects":
+
+```
+{
+    "$id": "617ba048311ab",
+    "$permissions": {
+        "read": [
+            "role:member"
+        ],
+        "write": [
+            "role:member"
+        ]
+    },
+    "name": "projects",
+    "dateCreated": 1635491912,
+    "dateUpdated": 1635492050,
+    "rules": [
+        {
+            "$id": "617ba0d21dc72",
+            "$collection": "rules",
+            "type": "text",
+            "key": "githubUrl",
+            "label": "GitHub URL",
+            "default": "",
+            "array": false,
+            "required": true,
+            "list": []
+        },
+        {
+            "$id": "617ba0d220217",
+            "$collection": "rules",
+            "type": "text",
+            "key": "title",
+            "label": "Title",
+            "default": "",
+            "array": false,
+            "required": true,
+            "list": []
+        },
+        {
+            "$id": "617ba0d22273b",
+            "$collection": "rules",
+            "type": "text",
+            "key": "description",
+            "label": "Description",
+            "default": "",
+            "array": false,
+            "required": true,
+            "list": []
+        }
+    ]
+}
+```
+
+- Collection "projects_secure":
+
+```
+{
+    "$id": "617ba0f43949e",
+    "$permissions": {
+        "read": [
+            "role:member"
+        ],
+        "write": []
+    },
+    "name": "projects_secure",
+    "dateCreated": 1635492084,
+    "dateUpdated": 1635492130,
+    "rules": [
+        {
+            "$id": "617ba12218907",
+            "$collection": "rules",
+            "type": "text",
+            "key": "projectId",
+            "label": "Project ID",
+            "default": "",
+            "array": false,
+            "required": true,
+            "list": []
+        },
+        {
+            "$id": "617ba1221aff6",
+            "$collection": "rules",
+            "type": "numeric",
+            "key": "score",
+            "label": "Score",
+            "default": 0,
+            "array": false,
+            "required": false,
+            "list": []
+        }
+    ]
+}
+```
+
 ## Build Setup
 
 ```bash
@@ -40,7 +138,6 @@ More information about the usage of this directory in [the documentation](https:
 Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
 
 ### `pages`
 
