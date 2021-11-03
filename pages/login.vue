@@ -1,27 +1,9 @@
 <template>
   <div
-    class="
-      relative
-      flex flex-col
-      min-h-screen
-      px-3
-      min-w-screen
-      custom-bg
-      bg-primary
-    "
+    class="relative flex flex-col min-h-screen px-3  min-w-screen custom-bg bg-primary"
   >
     <div
-      class="
-        absolute
-        bottom-0
-        left-0
-        w-full
-        h-20
-        bg-gradient-to-t
-        from-black
-        to-primary
-        opacity-10
-      "
+      class="absolute bottom-0 left-0 w-full h-20  bg-gradient-to-t from-black to-primary opacity-10"
     ></div>
 
     <img class="absolute left-10 bottom-10" src="/dots-bl.svg" alt="" />
@@ -35,44 +17,19 @@
     <div class="flex items-center justify-center h-full py-20">
       <form
         @submit="onLogin"
-        class="
-          z-20
-          flex flex-col
-          items-center
-          max-w-md
-          p-10
-          space-y-8
-          text-lg text-gray-700
-          bg-white
-          shadow-2xl
-          rounded-xl
-        "
+        class="z-20 flex flex-col items-center max-w-md p-10 space-y-8 text-lg text-gray-700 bg-white shadow-2xl  rounded-xl"
       >
         <img src="/logo.png" alt="" class="rounded-lg h-44" />
         <p class="text-center">
           This is demo application showcasing how
           <b class="font-semibold text-black">easy</b> it is to connect
-          <b class="font-semibold text-black">appwrite</b> with
+          <b class="font-semibold text-black">Appwrite</b> with
           <b class="font-semibold text-black">Appsmith</b>. To see it in action,
           log in!
         </p>
         <button
           type="submit"
-          class="
-            flex
-            items-center
-            justify-center
-            w-full
-            py-4
-            space-x-3
-            font-medium
-            text-white
-            rounded-md
-            shadow-lg
-            bg-primary
-            filter
-            hover:brightness-90
-          "
+          class="flex items-center justify-center w-full py-4 space-x-3 font-medium text-white rounded-md shadow-lg  bg-primary filter hover:brightness-90"
           style=""
         >
           <svg

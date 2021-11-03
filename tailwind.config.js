@@ -1,10 +1,12 @@
 module.exports = {
   mode: "jit",
   purge: [
-    "./pages/**/*.{js,jsx,ts,tsx,vue}",
-    "./pages/*.{js,jsx,ts,tsx,vue}",
-    "./store/**/*.{js,jsx,ts,tsx,vue}",
-    "./store/*.{js,jsx,ts,tsx,vue}",
+    "components/**/*.{js,jsx,ts,tsx,vue}",
+    "layouts/**/*.{js,jsx,ts,tsx,vue}",
+    "pages/**/*.{js,jsx,ts,tsx,vue}",
+    "store/**/*.{js,jsx,ts,tsx,vue}",
+    "static/**/*.{js,jsx,ts,tsx,vue}",
+    "middleware/**/*.{js,jsx,ts,tsx,vue}",
   ],
   theme: {
     extend: {
