@@ -3,7 +3,7 @@
     <div class="fixed inset-0 bg-primary custom-bg z-[5]"></div>
 
     <div
-      class="sticky top-0 z-40 flex items-center justify-between w-full p-6 bg-white shadow-lg  rounded-b-2xl"
+      class="sticky top-0 z-40 flex flex-col items-center justify-between w-full p-6 space-y-2 bg-white shadow-lg  lg:space-y-0 lg:space-x-3 lg:flex-row rounded-b-2xl"
     >
       <div class="flex items-center space-x-3">
         <div class="p-3 bg-gray-100 rounded-2xl text-pink">

@@ -117,12 +117,12 @@
         <button
           :disabled="isSubmitLoading"
           type="submit"
-          class="flex items-center justify-center px-6 py-4 space-x-3 font-medium text-white rounded-md shadow-lg  disabled:opacity-50 bg-pink filter hover:bg-pink-600"
+          class="flex items-center justify-center w-full px-6 py-4 space-x-3 font-medium text-white rounded-md shadow-lg  sm:w-auto disabled:opacity-50 bg-pink filter hover:bg-pink-600"
           style=""
         >
           <svg
             v-if="!isSubmitLoading"
-            class="w-5 h-5 text-white"
+            class="hidden w-5 h-5 text-white sm:block"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -138,7 +138,7 @@
 
           <svg
             v-if="isSubmitLoading"
-            class="w-5 h-5 text-white animate-spin"
+            class="hidden w-5 h-5 text-white sm:block animate-spin"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

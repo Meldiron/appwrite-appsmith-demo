@@ -14,7 +14,7 @@
       title="Whoops"
       text="Looks like GitHub login could not be performed successfully. Please try again."
     />
-    <div class="flex items-center justify-center h-full py-20">
+    <div class="flex items-center justify-center h-full py-3 sm:py-20">
       <form
         @submit="onLogin"
         class="z-20 flex flex-col items-center max-w-md p-10 space-y-8 text-lg text-gray-700 bg-white shadow-2xl  rounded-xl"
@@ -33,7 +33,7 @@
           style=""
         >
           <svg
-            class="w-5 h-5 text-white"
+            class="hidden w-5 h-5 text-white sm:block"
             width="250"
             height="243"
             viewBox="0 0 256 249"
