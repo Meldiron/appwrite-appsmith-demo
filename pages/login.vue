@@ -29,7 +29,7 @@
         </p>
         <button
           type="submit"
-          class="flex items-center justify-center w-full py-4 space-x-3 font-medium text-white rounded-md shadow-lg  bg-primary filter hover:brightness-90"
+          class="flex items-center justify-center w-full py-4 space-x-3 font-medium text-white rounded-md shadow-lg  bg-primary hover:bg-pink-600"
           style=""
         >
           <svg

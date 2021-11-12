@@ -30,12 +30,6 @@
         <NuxtLink class="text-gray-500 hover:underline" to="/app"
           >Home</NuxtLink
         >
-        <NuxtLink class="text-gray-500 hover:underline" to="/about"
-          >About</NuxtLink
-        >
-        <NuxtLink class="text-gray-500 hover:underline" to="/contact"
-          >Contact</NuxtLink
-        >
       </div>
 
       <div class="flex space-x-3">

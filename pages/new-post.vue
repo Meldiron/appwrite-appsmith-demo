@@ -13,7 +13,17 @@
 
     <form
       @submit="onAddProject"
-      class="z-20 flex flex-col items-center p-10 space-y-8 text-lg text-gray-700 bg-white shadow-2xl  rounded-xl"
+      class="
+        z-20
+        flex flex-col
+        items-center
+        p-10
+        space-y-8
+        text-lg text-gray-700
+        bg-white
+        shadow-2xl
+        rounded-xl
+      "
     >
       <div class="flex flex-col w-full space-y-1">
         <label for="github" class="block font-medium text-md" style=""
@@ -26,7 +36,16 @@
           required="required"
           placeholder="Enter GitHub URL"
           value=""
-          class="block w-full px-3 py-3 border border-gray-300 rounded-md  focus:ring-pink focus:border-pink sm:text-sm"
+          class="
+            block
+            w-full
+            px-3
+            py-3
+            border border-gray-300
+            rounded-md
+            focus:ring-pink focus:border-pink
+            sm:text-sm
+          "
         />
       </div>
       <div class="flex flex-col w-full space-y-1">
@@ -40,7 +59,16 @@
           required="required"
           placeholder="Enter name or slogan"
           value=""
-          class="block w-full px-3 py-3 border border-gray-300 rounded-md  focus:ring-pink focus:border-pink sm:text-sm"
+          class="
+            block
+            w-full
+            px-3
+            py-3
+            border border-gray-300
+            rounded-md
+            focus:ring-pink focus:border-pink
+            sm:text-sm
+          "
         />
       </div>
       <div class="flex flex-col w-full space-y-1">
@@ -55,7 +83,16 @@
           placeholder="Enter detail about project"
           value=""
           rows="3"
-          class="block w-full px-3 py-3 border border-gray-300 rounded-md  focus:ring-pink focus:border-pink sm:text-sm"
+          class="
+            block
+            w-full
+            px-3
+            py-3
+            border border-gray-300
+            rounded-md
+            focus:ring-pink focus:border-pink
+            sm:text-sm
+          "
         />
       </div>
 
@@ -90,23 +127,50 @@
             type="file"
           />
           <header
-            class="flex flex-col items-center justify-center py-12 border-2 border-gray-400 border-dashed  rounded-2xl"
+            class="
+              flex flex-col
+              items-center
+              justify-center
+              py-12
+              border-2 border-gray-400 border-dashed
+              rounded-2xl
+            "
           >
             <p
               v-if="!logo"
-              class="flex flex-wrap justify-center mb-3 font-semibold text-center text-gray-900 "
+              class="
+                flex flex-wrap
+                justify-center
+                mb-3
+                font-semibold
+                text-center text-gray-900
+              "
             >
               <span>Drag and drop your</span>&nbsp;<span>files here or</span>
             </p>
             <p
               v-if="logo"
-              class="flex flex-wrap justify-center mb-3 font-semibold text-center text-gray-900 "
+              class="
+                flex flex-wrap
+                justify-center
+                mb-3
+                font-semibold
+                text-center text-gray-900
+              "
             >
               <span>Currently selected file {{ logo.name }}</span>
             </p>
             <button
               type="button"
-              class="px-3 py-1 mt-2 bg-gray-200 rounded-sm  hover:bg-gray-300 focus:shadow-outline focus:outline-none"
+              class="
+                px-3
+                py-1
+                mt-2
+                bg-gray-200
+                rounded-sm
+                hover:bg-gray-300
+                focus:shadow-outline focus:outline-none
+              "
             >
               {{ logo ? "Select different file" : "Select a file" }}
             </button>
@@ -117,7 +181,23 @@
         <button
           :disabled="isSubmitLoading"
           type="submit"
-          class="flex items-center justify-center w-full px-6 py-4 space-x-3 font-medium text-white rounded-md shadow-lg  sm:w-auto disabled:opacity-50 bg-pink filter hover:bg-pink-600"
+          class="
+            flex
+            items-center
+            justify-center
+            w-full
+            px-6
+            py-4
+            space-x-3
+            font-medium
+            text-white
+            rounded-md
+            shadow-lg
+            sm:w-auto
+            disabled:opacity-50
+            bg-pink
+            hover:bg-pink-600
+          "
           style=""
         >
           <svg

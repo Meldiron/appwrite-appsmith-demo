@@ -18,21 +18,49 @@
             'border-white': !post.trending,
             'border-pink': post.trending,
           }"
-          class="z-20 flex flex-col w-full max-w-2xl p-10 space-y-6 text-lg text-gray-700 bg-white border-4 shadow-2xl  rounded-xl"
+          class="
+            z-20
+            flex flex-col
+            w-full
+            max-w-2xl
+            p-10
+            space-y-6
+            text-lg text-gray-700
+            bg-white
+            border-4
+            shadow-2xl
+            rounded-xl
+          "
         >
           <div
             class="flex justify-center w-full sm:justify-start"
             v-if="post.trending"
           >
             <span
-              class="inline-flex items-center justify-center h-6 px-3 text-sm text-white bg-pink-500 rounded-full "
+              class="
+                inline-flex
+                items-center
+                justify-center
+                h-6
+                px-3
+                text-sm text-white
+                bg-pink-500
+                rounded-full
+              "
             >
               Trending
             </span>
           </div>
 
           <div
-            class="flex flex-col-reverse items-center justify-between  sm:items-start gap-y-6 sm:gap-y-0 sm:space-x-6 sm:flex-row"
+            class="
+              flex flex-col-reverse
+              items-center
+              justify-between
+              sm:items-start
+              gap-y-6
+              sm:gap-y-0 sm:space-x-6 sm:flex-row
+            "
           >
             <div>
               <h1 class="text-2xl font-semibold text-left text-gray-900">
@@ -60,7 +88,20 @@
 
           <a :href="post.githubUrl" target="_blank">
             <button
-              class="flex items-center justify-center w-full py-4 space-x-3 font-medium text-white rounded-md shadow-lg  bg-primary filter hover:brightness-90"
+              class="
+                flex
+                items-center
+                justify-center
+                w-full
+                py-4
+                space-x-3
+                font-medium
+                text-white
+                rounded-md
+                shadow-lg
+                bg-primary
+                hover:bg-pink-600
+              "
             >
               <svg
                 class="hidden w-5 h-5 text-white sm:block"
@@ -87,7 +128,20 @@
         <button
           @click="onLoadNextPage()"
           v-if="postsSum > posts.length"
-          class="flex items-center justify-center w-full py-4 space-x-3 font-medium bg-white rounded-md shadow-lg  text-primary filter hover:bg-gray-100"
+          class="
+            flex
+            items-center
+            justify-center
+            w-full
+            py-4
+            space-x-3
+            font-medium
+            bg-white
+            rounded-md
+            shadow-lg
+            text-primary
+            hover:bg-gray-100
+          "
         >
           <svg
             v-if="postsPaginationLoading"
