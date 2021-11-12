@@ -166,7 +166,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { AppwriteService } from "../services/appwrite";
+
 export default {
   layout: "app",
   data() {
@@ -178,13 +179,11 @@ export default {
       isSubmitLoading: false,
       didSubmitSucceed: false,
       countryCode: "",
+      countries: [],
     };
   },
-  computed: {
-    ...mapState(["countries"]),
-  },
-  mounted() {
-    this.$store.dispatch("refreshCountryList");
+  async mounted() {
+    this.countries = await AppwriteService.getCountryList();
   },
   methods: {
     logoChange(e) {
@@ -195,27 +194,21 @@ export default {
 
       this.isSubmitLoading = true;
 
-      const { $id: logoId } = await this.$store.dispatch(
-        "uploadLogo",
-        this.logo
-      );
+      const { $id: logoId } = await AppwriteService.uploadImage(this.logo);
 
-      const didSubmitSuccessfully = await this.$store.dispatch(
-        "submitProject",
-        {
-          title: this.title,
-          description: this.description,
-          githubUrl: this.url,
-          logoId,
-          countryCode: this.countryCode,
-        }
-      );
+      const didSubmitSuccessfully = await AppwriteService.submitProject({
+        title: this.title,
+        description: this.description,
+        githubUrl: this.url,
+        logoId,
+        countryCode: this.countryCode,
+      });
 
       this.isSubmitLoading = false;
 
       if (didSubmitSuccessfully) {
         this.didSubmitSucceed = true;
-        this.file = undefined;
+        this.logo = undefined;
         this.url = "";
         this.title = "";
         this.description = "";

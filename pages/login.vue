@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import { AppwriteService } from "../services/appwrite";
 export default {
   middleware: "only-unauthentificated",
   data() {
@@ -68,10 +69,10 @@ export default {
     this.showAlert = this.$route.query.alert === "1";
   },
   methods: {
-    onLogin(e) {
+    async onLogin(e) {
       e.preventDefault();
-      this.$store.dispatch("loginUsingGitHub");
       this.$nuxt.$loading.start();
+      await AppwriteService.login();
     },
   },
 };

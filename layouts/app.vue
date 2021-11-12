@@ -173,19 +173,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { AppwriteService } from "../services/appwrite";
+
 export default {
-  //   router: {
-  //     linkActiveClass: "!text-black",
-  //     linkExactActiveClass: "!text-black",
-  //   },
   middleware: "only-authentificated",
-  computed: {
-    ...mapState(["realtimeData"]),
-  },
   data: () => {
     return {
       showAlert: false,
+      realtimeData: null,
     };
   },
   watch: {
@@ -198,16 +193,30 @@ export default {
   methods: {
     async onLogout() {
       this.$nuxt.$loading.start();
-      await this.$store.dispatch("logout");
+
+      const didLogout = await AppwriteService.logout();
+
       this.$nuxt.$loading.finish();
-      this.$router.push("/");
+
+      if (didLogout) {
+        this.$router.push("/login");
+      }
     },
   },
   mounted() {
-    this.$store.dispatch("initSubscriptions");
     if (this.$route) {
       this.showAlert = this.$route.query.alert === "1";
     }
+
+    AppwriteService.initPostsSubscription(async (post) => {
+      const sleep = util.promisify((a, f) => setTimeout(f, a));
+
+      this.realtimeData = null;
+      await sleep(50);
+      this.realtimeData = data;
+      await sleep(5000);
+      this.realtimeData = null;
+    });
   },
 };
 </script>

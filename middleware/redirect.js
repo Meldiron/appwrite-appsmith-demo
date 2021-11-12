@@ -1,7 +1,9 @@
-export default async function ({ redirect, store }) {
-  await store.dispatch("updateAuthentificationStatus");
+import { AppwriteService } from "../services/appwrite";
 
-  if (store.state.authentificated) {
+export default async function ({ redirect }) {
+  const isLoggedIn = await AppwriteService.getAuthStatus();
+
+  if (isLoggedIn) {
     return redirect("/app");
   } else {
     return redirect("/login");

@@ -12,7 +12,7 @@
           </p>
         </div>
         <div
-          v-for="post in allPosts"
+          v-for="(post, postIndex) in [...trendingPosts, ...posts]"
           :key="post.$id"
           v-bind:class="{
             'border-white': !post.trending,
@@ -51,7 +51,11 @@
               </p>
             </div>
 
-            <img class="w-40 h-40" :src="post.logoUrl" alt="Project logo" />
+            <img
+              class="w-40 h-40"
+              :src="getImageThumbnail(post.logoId, postIndex)"
+              alt="Project logo"
+            />
           </div>
 
           <a :href="post.githubUrl" target="_blank">
@@ -82,7 +86,7 @@
 
         <button
           @click="onLoadNextPage()"
-          v-if="projectsSum > posts.length"
+          v-if="postsSum > posts.length"
           class="flex items-center justify-center w-full py-4 space-x-3 font-medium bg-white rounded-md shadow-lg  text-primary filter hover:bg-gray-100"
         >
           <svg
@@ -107,7 +111,7 @@
             ></path>
           </svg>
 
-          <p>Load more ({{ projectsSum - posts.length }} left)</p>
+          <p>Load more ({{ postsSum - posts.length }} left)</p>
         </button>
       </div>
     </div>
@@ -137,28 +141,46 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { AppwriteService } from "../services/appwrite";
 
 export default {
   layout: "app",
-  computed: {
-    ...mapState([
-      "isLoadingPosts",
-      "posts",
-      "trendingPosts",
-      "countries",
-      "projectsSum",
-      "postsPaginationLoading",
-    ]),
-    ...mapGetters(["allPosts"]),
+  data() {
+    return {
+      countries: [],
+      posts: [],
+      trendingPosts: [],
+      postsSum: 0,
+      postsPage: 1,
+
+      isLoadingPosts: true,
+      postsPaginationLoading: false,
+    };
   },
-  mounted() {
-    this.$store.dispatch("refreshCountryList");
-    this.$store.dispatch("forceRefreshProjects");
+  async mounted() {
+    this.countries = await AppwriteService.getCountryList();
+
+    this.trendingPosts = await AppwriteService.getTrendingProjects();
+
+    const postsResponse = await AppwriteService.getProjects(this.postsPage);
+    this.posts = postsResponse.documents;
+    this.postsSum = postsResponse.sum;
+
+    this.isLoadingPosts = false;
   },
   methods: {
-    onLoadNextPage() {
-      this.$store.dispatch("loadNextProjectsPage");
+    getImageThumbnail(fileId, arrayIndex) {
+      return AppwriteService.getImageThumbnail(fileId, arrayIndex);
+    },
+    async onLoadNextPage() {
+      this.postsPaginationLoading = true;
+
+      this.postsPage++;
+
+      const postsResponse = await AppwriteService.getProjects(this.postsPage);
+      this.posts.push(...postsResponse.documents);
+
+      this.postsPaginationLoading = false;
     },
     getCountryName(code) {
       const country = this.countries.find((c) => c.code === code);
