@@ -100,7 +100,7 @@ export const AppwriteService = {
   async getTrendingProjects(): Promise<Models.DocumentList<AppwritePost>> {
     const postsResponse = await sdk.database.listDocuments<AppwritePost>(
       collections.projects,
-      ["trending=true"],
+      ["trending=1"],
       5,
       undefined,
       "createdAt",
@@ -113,7 +113,7 @@ export const AppwriteService = {
   async getProjects(page: number): Promise<Models.DocumentList<AppwritePost>> {
     const postsResponse = await sdk.database.listDocuments<AppwritePost>(
       collections.projects,
-      ["trending=false"],
+      ["trending=0"],
       paginationPerPage,
       (page - 1) * paginationPerPage,
       "createdAt",
@@ -134,7 +134,9 @@ export const AppwriteService = {
       undefined,
       40,
       undefined,
-      index % 2 == 0 ? 6 : 354
+      index % 2 == 0 ? 6 : 354,
+      undefined,
+      "png"
     ).toString();
   },
 

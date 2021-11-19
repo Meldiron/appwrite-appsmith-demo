@@ -56,8 +56,16 @@
         class="absolute bottom-0 left-0 w-full h-20  bg-gradient-to-t from-black to-primary opacity-10"
       ></div>
 
-      <img class="absolute z-10 left-10 bottom-10" src="/dots-bl.svg" alt="" />
-      <img class="absolute z-10 right-10 top-10" src="/dots-tr.svg" alt="" />
+      <img
+        class="absolute z-10 hidden left-10 bottom-10 sm:block"
+        src="/dots-bl.svg"
+        alt=""
+      />
+      <img
+        class="absolute z-10 hidden right-10 top-10 sm:block"
+        src="/dots-tr.svg"
+        alt=""
+      />
 
       <div
         class="flex flex-col items-center justify-center h-full pb-20 space-y-20 "
