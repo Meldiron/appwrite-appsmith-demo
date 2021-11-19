@@ -1,6 +1,7 @@
+import { Middleware } from "@nuxt/types";
 import { AppwriteService } from "../services/appwrite";
 
-export default async function ({ redirect }) {
+const middleware: Middleware = async ({ redirect }) => {
   const isLoggedIn = await AppwriteService.getAuthStatus();
 
   if (isLoggedIn) {
@@ -8,4 +9,6 @@ export default async function ({ redirect }) {
   } else {
     return redirect("/login");
   }
-}
+};
+
+export default middleware;

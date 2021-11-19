@@ -9,11 +9,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "appwrite": "^4.0.4",
+    "appwrite": "^5.0.0",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/tailwindcss": "^4.2.0",
     "postcss": "^8.3.5"
   }

@@ -56,9 +56,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { AppwriteService } from "../services/appwrite";
-export default {
+import Vue from "vue";
+
+export default Vue.extend({
   middleware: "only-unauthentificated",
   data() {
     return {
@@ -69,13 +71,13 @@ export default {
     this.showAlert = this.$route.query.alert === "1";
   },
   methods: {
-    async onLogin(e) {
+    async onLogin(e: Event) {
       e.preventDefault();
       this.$nuxt.$loading.start();
       await AppwriteService.login();
     },
   },
-};
+});
 </script>
 
 <style scoped>

@@ -166,15 +166,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { AppwriteService } from "../services/appwrite";
+import * as util from "util";
 
-export default {
+export default Vue.extend({
   middleware: "only-authentificated",
   data: () => {
     return {
       showAlert: false,
       realtimeData: null,
+    } as {
+      showAlert: boolean;
+      realtimeData: null | {
+        url: string;
+        text: string;
+      };
     };
   },
   watch: {
@@ -203,16 +211,16 @@ export default {
     }
 
     AppwriteService.initPostsSubscription(async (post) => {
-      const sleep = util.promisify((a, f) => setTimeout(f, a));
+      const sleep = util.promisify((a: any, f: any) => setTimeout(f, a));
 
       this.realtimeData = null;
       await sleep(50);
-      this.realtimeData = data;
+      this.realtimeData = post;
       await sleep(5000);
       this.realtimeData = null;
     });
   },
-};
+});
 </script>
 
 
