@@ -185,6 +185,8 @@ export default Vue.extend({
       return AppwriteService.getImageThumbnail(fileId, arrayIndex);
     },
     async onLoadNextPage() {
+      const originalScrollPosition = document.documentElement.scrollTop;
+
       this.postsPaginationLoading = true;
 
       this.postsPage++;
@@ -193,6 +195,10 @@ export default Vue.extend({
       this.posts.push(...postsResponse.documents);
 
       this.postsPaginationLoading = false;
+
+      setTimeout(() => {
+        document.documentElement.scrollTop = originalScrollPosition;
+      }, 1);
     },
     getCountryName(code: string) {
       const country = this.countries.find((c) => c.code === code);
