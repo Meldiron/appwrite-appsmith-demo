@@ -220,9 +220,9 @@ export default Vue.extend({
 
     AppwriteService.initPostsSubscription(async (post) => {
       const sleep = util.promisify((a: any, f: any) => setTimeout(f, a));
-
       this.realtimeData = null;
       await sleep(50);
+
       this.realtimeData = post;
       await sleep(5000);
       this.realtimeData = null;
