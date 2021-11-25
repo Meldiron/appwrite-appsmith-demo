@@ -18,7 +18,7 @@
     },
     "name": "projects",
     "dateCreated": 1635491912,
-    "dateUpdated": 1635492050,
+    "dateUpdated": 1637319184,
     "rules": [
         {
             "$id": "617ba0d21dc72",
@@ -52,46 +52,60 @@
             "array": false,
             "required": true,
             "list": []
-        }
-    ]
-}
-```
-
-- Collection "projects_secure":
-
-```
-{
-    "$id": "617ba0f43949e",
-    "$permissions": {
-        "read": [
-            "role:member"
-        ],
-        "write": []
-    },
-    "name": "projects_secure",
-    "dateCreated": 1635492084,
-    "dateUpdated": 1635492130,
-    "rules": [
+        },
         {
-            "$id": "617ba12218907",
+            "$id": "617ba8e95b3f4",
             "$collection": "rules",
             "type": "text",
-            "key": "projectId",
-            "label": "Project ID",
+            "key": "authorId",
+            "label": "Author ID",
             "default": "",
             "array": false,
             "required": true,
             "list": []
         },
         {
-            "$id": "617ba1221aff6",
+            "$id": "617bac1d5743a",
             "$collection": "rules",
             "type": "numeric",
-            "key": "score",
-            "label": "Score",
+            "key": "trending",
+            "label": "trending",
             "default": 0,
             "array": false,
             "required": false,
+            "list": []
+        },
+        {
+            "$id": "617baff72de45",
+            "$collection": "rules",
+            "type": "numeric",
+            "key": "createdAt",
+            "label": "Created At",
+            "default": 0,
+            "array": false,
+            "required": true,
+            "list": []
+        },
+        {
+            "$id": "61825c6e79dec",
+            "$collection": "rules",
+            "type": "text",
+            "key": "logoId",
+            "label": "Logo ID",
+            "default": "",
+            "array": false,
+            "required": true,
+            "list": []
+        },
+        {
+            "$id": "618262e16bde7",
+            "$collection": "rules",
+            "type": "text",
+            "key": "countryCode",
+            "label": "Country Code",
+            "default": "",
+            "array": false,
+            "required": true,
             "list": []
         }
     ]
